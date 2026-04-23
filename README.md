@@ -1,1 +1,2 @@
-# Jtaylor024.github.io
+# Jeffrey Taylor Engineering Portfolio
+This website showcases some of my class projects. Enjoy!
