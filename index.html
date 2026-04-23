@@ -457,7 +457,7 @@ const projects = {
     title: 'Passive medical monitoring product development',
     tags: [['Design','design'],['Hardware','hardware'],['Software','software']],
     media: { type: 'gallery', items: [
-      { type: 'image', src: 'assets/Mill.png' },
+      { type: 'image', src: 'assets/cartridge.png' },
     ] },
     desc: 'Worked on invention and prototyping for a passive monitoring product with a five-person R and D team.',
     outcomes: [
@@ -466,24 +466,25 @@ const projects = {
     ],
     skills: ['Rapid Prototyping','Design Iteration','R and D Collaboration','Hardware Integration'],
   }, 
-  qa: {
-    title: 'Medical device QA verification at ATL Technology',
-    tags: [['Industry','impact'],['Validation','research']],
-    desc: 'Performed reliability and safety validation work for medical device systems and completed design verification protocols.',
+  navigation: {
+    title: 'Computer vision navigation for semi-autonomous agriculture',
+    tags: [['Research','impact'],['Validation','research']],
+    desc: 'Graduate research project focused on computer vision-based navigation for semi-autonomous agricultural vehicles. Developed and validated algorithms for real-time environment perception and path planning in dynamic field conditions.',
     outcomes: [
-      'Executed engineering tests for critical medical components',
-      'Completed design verification protocols across 32 system components'
+      'Designed and implemented a computer vision navigation system for agricultural vehicles',
+      'Validated algorithms in real-time field conditions, demonstrating improved navigation accuracy',
     ],
-    skills: ['Verification Testing','Reliability','Safety','Documentation'],
+    skills: ['Computer Vision','Real-time Systems','Field Testing','Algorithm Validation'],
   },
   designportfolio: {
     title: 'Design portfolio',
     tags: [['Design','design']],
     media: { type: 'gallery', items: [
     { type: 'image', src: 'assets/Onewheel.png' },
-    { type: 'image', src: 'assets/OneWheel_explode.png' },
+    <!-- { type: 'image', src: 'assets/OneWheel_explode.png' }, -->
     { type: 'image', src: 'assets/OneWheel_annotated_explode.png' },
     { type: 'image', src: 'assets/LadderLock_deploy.png' },
+    { type: 'image', src: 'assets/LadderLock_section.png' },
 
     ] },
     desc: 'A collection of design-focused projects and work samples.',
@@ -497,9 +498,10 @@ const projects = {
     title: 'Sketch portfolio',
     tags: [['Design','design']],
     media: { type: 'gallery', items: [
-      { type: 'image', src: 'assets/sketch1.png' },
-      { type: 'image', src: 'assets/sketch2.png' },
-      { type: 'image', src: 'assets/sketch3.png' },
+      { type: 'image', src: 'assets/watchSketch.png' },
+      { type: 'image', src: 'assets/legoSketch.png' },
+      { type: 'image', src: 'assets/clawSketch.png' },
+      { type: 'image', src: 'assets/cameraSketch.png' },
     ] },
     desc: 'A collection of sketches and concept work.',
     outcomes: [
@@ -511,10 +513,10 @@ const projects = {
 };
 
 const archiveData = [
-  { id:'quinoa', num:'01', title:'Quinoa mill — Bolivia', sub:'Humanitarian design · Field deployment', year:'Graduate', cats:['hardware','design'] },
-  { id:'rover', num:'02', title:'Saffron field rover ', sub:'40% harvest gain, 1.9M images, 10k landmarks', year:'Research', cats:['research','software'] },
-  { id:'navigation', num:'02', title:'Novel navigation for semi-autonomous agriculture', sub:'Controls, and autonomy for dynamic environments', year:'Research', cats:['research','software','hardware'] },
-  { id:'sandia', num:'03', title:'Sandia high-g test automation', sub:'90% faster review with data pipeline automation', year:'Industry', cats:['industry','software'] },
+  { id:'rover', num:'01', title:'Saffron field rover ', sub:'1.9M images, 10k landmarks, 1 patent', year:'Research', cats:['research','software'] },
+  { id:'quinoa', num:'02', title:'Quinoa mill — Bolivia', sub:'Humanitarian design · Field deployment', year:'Graduate', cats:['hardware','design'] },
+  { id:'navigation', num:'03', title:'Novel navigation for semi-autonomous agriculture', sub:'Controls, and autonomy for dynamic environments', year:'Research', cats:['research','software','hardware'] },
+  { id:'sandia', num:'04', title:'Sandia high-g process automation', sub:'90% faster review with data pipeline automation', year:'Industry', cats:['industry','software'] },
   { id:'mediclife', num:'05', title:'Medical device prototyping', sub:'17 prototypes for replaceable testingcartridges', year:'Design', cats:['design'] },
   { id:'designportfolio', num:'06', title:'Design portfolio', sub:'A collection of design-focused projects and work samples', year:'Design', cats:['design'] },
   { id:'sketchportfolio', num:'07', title:'Sketch portfolio', sub:'A collection of sketches and concept work', year:'Personal', cats:['design'] }
@@ -531,7 +533,10 @@ const sideProjects = [
   { icon: '🛠️', title: 'Workshop build', desc: 'Anything made in the garage, on the bench, or for a friend. Add a photo path in the media field.', id: null },
 ];
 
-let externalLinks = {};
+let externalLinks = {
+  resume: 'assets/JeffreyTaylor_Resume.pdf',
+  linkedin: 'https://www.linkedin.com/in/jeffreyryantaylor/'
+};
 
 const projectLinkMap = {
   mobileapp: [
@@ -578,9 +583,9 @@ function renderProfileLinks() {
 async function loadLinks() {
   try {
     const res = await fetch('links.json');
-    if (res.ok) externalLinks = await res.json();
+    if (res.ok) externalLinks = { ...externalLinks, ...(await res.json()) };
   } catch (err) {
-    externalLinks = {};
+    console.warn('Could not load links.json, using built-in defaults.', err);
   }
   renderProfileLinks();
 }
