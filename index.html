@@ -296,6 +296,7 @@
       <h3>Research-first engineer with a <em>deployment mindset</em></h3>
       <p>I am currently completing an MS in Mechanical Engineering at BYU with a 4.00 GPA. My technical center is robotics and GNC, and I like projects that combine algorithm design, real hardware constraints, and measurable outcomes.</p>
       <p>From rover autonomy to medical device prototyping, I prefer work where design and validation are tightly coupled. I enjoy turning messy field data into clear engineering decisions.</p>
+  
       <div class="about-hl">
         <div class="hl-item"><span class="hl-icon">🧭</span><div class="hl-text"><strong>GNC and autonomy focus</strong>Controls, SLAM, mapping, and model-driven robotics decisions.</div></div>
         <div class="hl-item"><span class="hl-icon">🧪</span><div class="hl-text"><strong>Validation oriented</strong>Signal processing, test pipelines, and repeatable engineering methods.</div></div>
@@ -341,7 +342,7 @@
   </div>
   <div class="archive-filter">
     <button class="filter-btn on" onclick="filterArchive('all',this)">All</button>
-    <button class="filter-btn" onclick="filterArchive('research',this)">Research</button>
+    <button class="filter-btn" onclick="filterArchive('robotics',this)">Robotics</button>
     <button class="filter-btn" onclick="filterArchive('hardware',this)">Hardware</button>
     <button class="filter-btn" onclick="filterArchive('software',this)">Software</button>
     <button class="filter-btn" onclick="filterArchive('design',this)">Design</button>
@@ -528,6 +529,7 @@ const projects = {
     ],
     skills: ['Mechanical Design','Product Design','Humanitarian Design','Visual Communication'],
   },
+
   sketchportfolio: {
     title: 'Sketch portfolio',
     tags: [['Design','design']],
@@ -543,18 +545,34 @@ const projects = {
       'Includes a variety of subjects, from product concepts to mechanical details'
     ],
     skills: ['Sketching','Concept Development','Visual Communication'],
-  }
+  },
+
+  robotics: {
+    title: 'Object tracking robotic arm',
+    tags: [['Design','design'],['Software','software']],
+    media: { type: 'gallery', items: [
+      { type: 'video', src: 'assets/RoboticsDemo.mp4' },
+    ] },
+    desc: 'A simulated 6-DOF robot arm uses computer vision feedback to calculate inverse kinematics solutions and follow a moving target in 3D space. This project combines computer vision and inverse kinematics to demonstrate real-time control of an open-chain robotic system.',
+    outcomes: [
+      'Calculates point-by-point inverse kinematics solutions for a 6-DOF robot arm using computer vision feedback',
+      'Demonstrates real-time control of the robot arm to follow a moving target in 3D space',
+    ],
+    skills: ['Mechanical Design','Software Development','Hardware Integration','Visual Communication'],
+  },
+
 };
 
 const archiveData = [
-  { id:'rover', num:'01', title:'Saffron field rover ', sub:'1.9M images, 10k landmarks, 1 patent', year:'Research', cats:['research','software'] },
+  { id:'rover', num:'01', title:'Saffron field rover ', sub:'1.9M images, 10k landmarks, 1 patent', year:'Research', cats:['hardware', 'software', 'robotics'] },
   { id:'quinoa', num:'02', title:'Quinoa mill — Bolivia', sub:'Humanitarian design · Field deployment', year:'Graduate', cats:['hardware','design'] },
-  { id:'predict', num:'03', title:'Autonomous harvesting prediction', sub:'Real-time machine learning for harvest quality prediction', year:'Research', cats:['research','software'] },
-  { id:'navigation', num:'03', title:'Novel navigation algorithm for semi-autonomous agriculture', sub:'Controls, and autonomy for dynamic environments', year:'Research', cats:['research','software','hardware'] },
-  { id:'sandia', num:'04', title:'Sandia high-g process automation', sub:'90% faster review with data pipeline automation', year:'Industry', cats:['industry','software'] },
-  { id:'mediclife', num:'05', title:'Medical device prototyping', sub:'17 prototypes for replaceable testingcartridges', year:'Design', cats:['design'] },
-  { id:'designportfolio', num:'06', title:'Design portfolio', sub:'A collection of design-focused projects and work samples', year:'Design', cats:['design'] },
-  { id:'sketchportfolio', num:'07', title:'Sketch portfolio', sub:'A collection of sketches and concept work', year:'Personal', cats:['design'] }
+  { id:'predict', num:'03', title:'Deep learning harvesting prediction', sub:'Real-time prediction for autonomous agriculture', year:'Research', cats:['software', 'robotics'] },
+  { id:'navigation', num:'04', title:'Intelligent navigation algorithm', sub:'Control for semi-autonomous agriculture', year:'Research', cats:['software','hardware', 'robotics'] },
+  { id:'sandia', num:'05', title:'Sandia high-g process automation', sub:'90% faster review with data pipeline automation', year:'Industry', cats:['software', 'design'] },
+  { id:'mediclife', num:'06', title:'Medical device prototyping', sub:'17 prototypes for replaceable testingcartridges', year:'Design', cats:['design'] },
+  { id:'designportfolio', num:'07', title:'Design portfolio', sub:'A collection of design-focused projects and work samples', year:'Design', cats:['design'] },
+  { id:'sketchportfolio', num:'08', title:'Sketch portfolio', sub:'A collection of sketches and concept work', year:'Personal', cats:['design'] },
+  { id:'robotics', num:'09', title:'Object tracking robotic arm', sub:'Computer vision meets robot inverse kinematics', year:'Personal', cats:['software', 'robotics'] }
 ];
 
 /*
